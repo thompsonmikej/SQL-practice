@@ -1,0 +1,91 @@
+1. Basic
+SELECT FROM WHERE
+
+SELECT (column)
+FROM (table)
+WHERE (X= Y);
+
+12. Joins
+
+SELECT (column)
+FROM (table1)
+JOIN (table2)
+ON table1.id=table2.id
+WHERE  ;
+
+18. Creates a table
+SELECT FROM WHERE AND
+
+SELECT sql
+FROM (application)
+WHERE type= "table"
+AND tbl_name = "X";
+___
+
+
+Q14. 
+SELECT DISTINCT X, Y #return columns
+FROM Table1 
+INNER JOIN Table2 #identifies the tables
+ON Table1.id=Table2.id #joins the keys
+WHERE XY = "AB"; #specifies criteria in colums
+
+SELECT DISTINCT First_Name, Last_Name 
+FROM CHECKED_OUT 
+INNER JOIN BOOKS 
+ON CHECKED_OUT.Book_ID = BOOKS.Book_ID 
+WHERE Author = "Terry Crews";
+
+---
+18. Creates a new table called CHECKED_OUT
+
+SELECT sql
+FROM sqlite_master
+WHERE type= "table"
+AND tbl_name = "CHECKED_OUT";
+
+__
+19. Salary greater than 4 times the lowest salaries
+SELECT Professor_Name, Salary
+FROM SALARIES
+WHERE Salary > (SELECT MIN(Salary)FROM SALARIES) *4;
+
+20. Count number of individual authors
+SELECT COUNT(DISTINCT(AUTHOR)) FROM BOOKS;
+
+
+--
+As 16 of the 20 most reviewed listings have lengths-of-stay seven days or less, the flexibility of consumer choice appears to be a revenue driver. 
+
+Price appears to be less of a factor than length-of-stay as the range within this group is from $55 to $375 per night. The $375 rental being in the top 20 may also be attributable to the one night minimum. 
+
+If reviews are indicative of a fraction of rental activity, then the most reviewed listings are the ones with the most influx of new customers. It stands to reason that new customers would leave comments, not necessarily repeat customers. 
+
+With a conservative guess that maybe one out of every four or five customers may leave a comment, this supports that there is high turnover of new customers.
+
+---
+SQL comparing two lists
+
+
+SELECT DISTINCT a.First_Name, (# distinct first name) a.Last_Name 
+FROM CHECKED_OUT 
+AS a (# alias "a", full name), 
+CHECKED_OUT 
+AS b (alias "b", also full name)
+where 
+a.Last_Name = b.Last_Name 
+AND a.First_Name != b.First_Name
+(# compare the last names and first names)
+____
+DOT NOTATION
+
+SELECT o.OrderID, o.OrderDate,
+ c.CustomerName
+FROM Customers AS c, 
+Orders AS o
+WHERE 
+c.CustomerName='Around the Horn' AND 
+c.CustomerID=o.CustomerID;
+
+
+SELECT
